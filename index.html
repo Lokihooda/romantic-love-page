@@ -194,6 +194,13 @@
                     createHeart();
                 }, i * 100);
             }
+                        
+            // Reset after 5 seconds
+            setTimeout(() => {
+                buttonContainer.style.display = 'flex';
+                successMsg.style.display = 'none';
+                noBtn.style.position = 'static';
+            }, 5000);
         });
         
         function createHeart() {
