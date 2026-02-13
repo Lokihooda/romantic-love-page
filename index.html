@@ -13,7 +13,7 @@
         
         body {
             font-family: 'Comic Sans MS', 'Arial', cursive;
-            background: linear-gradient(135deg, #ffeef8 0%, #ffd6e7 100%);
+            background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -195,6 +195,13 @@
                 }, i * 100);
             }
                         
+            // Create rose shower
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    createRose();
+                }, i * 150);
+            }
+                        
             // Reset after 5 seconds
             setTimeout(() => {
                 buttonContainer.style.display = 'flex';
@@ -213,6 +220,19 @@
             
             setTimeout(() => {
                 heart.remove();
+            }, 3000);
+        }
+                
+        function createRose() {
+            const rose = document.createElement('div');
+            rose.className = 'heart';
+            rose.innerHTML = '🌹';
+            rose.style.left = Math.random() * window.innerWidth + 'px';
+            rose.style.top = window.innerHeight + 'px';
+            document.body.appendChild(rose);
+            
+            setTimeout(() => {
+                rose.remove();
             }, 3000);
         }
     </script>
