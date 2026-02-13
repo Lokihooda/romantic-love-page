@@ -152,8 +152,7 @@
         const buttonContainer = document.querySelector('.button-container');
         
         let noBtnEscapes = 0;
-        let jumpInterval;
-        
+
         function moveNoButton() {
             const maxX = window.innerWidth - noBtn.offsetWidth - 20;
             const maxY = window.innerHeight - noBtn.offsetHeight - 20;
@@ -171,14 +170,7 @@
             noBtnEscapes++;
         }
         
-        // Start jumping immediately when page loads
-        setTimeout(() => {
-            noBtn.style.position = "fixed";
-            moveNoButton();
-            
-            // Keep jumping every 800ms until YES is pressed
-            jumpInterval = setInterval(moveNoButton, 800);
-        }, 500);
+        
         
         noBtn.addEventListener("mouseover", moveNoButton);
         noBtn.addEventListener("mousedown", moveNoButton);
@@ -192,8 +184,6 @@
         );
         
         yesBtn.addEventListener('click', function() {
-            // Stop the jumping
-            clearInterval(jumpInterval);
             
             buttonContainer.style.display = 'none';
             successMsg.style.display = 'block';
